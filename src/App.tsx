@@ -80,14 +80,10 @@ function click() {
     fileReader.onload = (): void => {
       if (fileReader.result && typeof fileReader.result === 'string') {
         const data = JSON.parse(fileReader.result)
-        const deepClones: any[] = []
-        for (let i = 0; i < 1000; i++) {
-            console.log(`deepClone ${i}`)
-            deepClones.push(deepClone(data))
-
+        const cloned = deepClone(data)
+        if (cloned) {
+          alert('done without error !')
         }
-
-        console.log('done')
       }
     }
 
